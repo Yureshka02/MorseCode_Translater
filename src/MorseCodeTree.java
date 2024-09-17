@@ -31,9 +31,15 @@ public class MorseCodeTree {
         if ( node != null ){
             inorder(node.left);
             if ( node.character != ' ' ){
-                System.out.println(node.character + " ");
+                System.out.println(node.character + " " );
             }
             inorder(node.right);
         }
+
+
+    }
+    // Getter for the root node
+    public MorseNode getRoot() {
+        return root;
     }
 }
