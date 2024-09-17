@@ -30,16 +30,7 @@ public class MorseCodeApp {
                 "-..-",
                 "-.--",
                 "--..",
-                ".----",
-                "..---",
-                "...--",
-                "....-",
-                ".....",
-                "-....",
-                "--...",
-                "---..",
-                "----.",
-                "-----"
+
 
         };
 
@@ -70,16 +61,7 @@ public class MorseCodeApp {
                 'X',
                 'Y',
                 'Z',
-                '1',
-                '2',
-                '3',
-                '4',
-                '5',
-                '6',
-                '7',
-                '8',
-                '9',
-                '0'
+
         };
 
         //inserting the morse code and the character into the tree
@@ -94,7 +76,7 @@ public class MorseCodeApp {
 
 
         // Decode the Morse code message
-        String morseCode ="- ..- --- -.-- / . -...- --- .-.. / ... --- ...";
+        String morseCode ="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
@@ -103,3 +85,4 @@ public class MorseCodeApp {
         System.out.println("Reversed Message: " + reversedMessage);
     }
 }
+//-.-- --- ..- / .-.. --- ...- . / ... --- ...
