@@ -3,7 +3,6 @@ public class MorseCodeTree {
 
     //constructor that initializes the root node
     public MorseCodeTree() {
-        //root node is empty
         root = new MorseNode(' ');
     }
 
@@ -24,5 +23,17 @@ public class MorseCodeTree {
             }
         }
         current.character = character; //assign the character to the node
+    }
+
+
+    //Inorder traversal of the tree to print the morse code and the character
+    public void inorder(MorseNode node){
+        if ( node != null ){
+            inorder(node.left);
+            if ( node.character != ' ' ){
+                System.out.println(node.character + " ");
+            }
+            inorder(node.right);
+        }
     }
 }
