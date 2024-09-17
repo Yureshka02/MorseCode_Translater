@@ -85,9 +85,9 @@ public class MorseCodeTree {
     }
 
     // Method to reverse the message for transmission security
-//    public String reverseMessage(String message) {
-//        return new StringBuilder(message).reverse().toString();
-//    }
+    public String reverseMessage(String message) {
+        return new StringBuilder(message).reverse().toString();
+    }
 
     // Getter for the root node
     public MorseNode getRoot() {
