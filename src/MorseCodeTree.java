@@ -51,7 +51,9 @@ public class MorseCodeTree {
         // Split by Morse code word separator and then reverse each word's letters
         String[] words = morseCode.split(" / "); // Split by Morse code word separator
 
-        for (String word : words) {
+        for (int i = words.length - 1; i >= 0; i--) { // Iterate from last word to first
+            String word = words[i];
+
             // Reverse the letters in each word
             word = new StringBuilder(word).reverse().toString();
 
@@ -84,7 +86,6 @@ public class MorseCodeTree {
 
         return decodedString.toString().trim(); // Remove trailing space
     }
-
 
     // Method to reverse the message for transmission security
     public String reverseMessage(String message) {
