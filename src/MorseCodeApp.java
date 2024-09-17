@@ -21,8 +21,8 @@ public class MorseCodeApp {
         System.out.println();
 
         // Original Morse code as provided
-       String morseCode="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
-      //String morseCode = "/ -- . .- - / -- . / .- - / -. --- --- -.";
+      // String morseCode="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
+      String morseCode = ".- --- --- .-/ - -./ . --/ - . . --";
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
