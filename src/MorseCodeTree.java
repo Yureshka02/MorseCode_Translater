@@ -43,11 +43,33 @@ public class MorseCodeTree {
         inorderPrint(node.right, morseCode + "-");
     }
 
+    //method to decode a provided morse code string
+    public String decode(String morseCode) {
+        StringBuilder decodedString = new StringBuilder();
+        String[] Message = morseCode.split(" ");
 
+        for (String code : Message) {
+            MorseNode current = root;
+            for (char c : code.toCharArray()) {
+                if (c == '.') {
+                    current = current.left;
+                } else if (c == '-') {
+                    current = current.right;
+                }
+            }
+            decodedString.append(current.character); // Append decoded character
+        }
+        decodedString.append(" "); // Add
 
-
-    // Getter for the root node
-    public MorseNode getRoot() {
-        return root;
+        return decodedString.toString().trim();
     }
-}
+        // Method to reverse the message for transmission security
+        public String reverseMessage(String Message) {
+            return new StringBuilder(Message).reverse().toString();
+        }
+
+        // Getter for the root node
+        public MorseNode getRoot() {
+            return root;
+        }
+    }

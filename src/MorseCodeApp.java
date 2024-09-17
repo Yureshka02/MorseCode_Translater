@@ -29,12 +29,58 @@ public class MorseCodeApp {
                 ".--",
                 "-..-",
                 "-.--",
-                "--.."
+                "--..",
+                ".----",
+                "..---",
+                "...--",
+                "....-",
+                ".....",
+                "-....",
+                "--...",
+                "---..",
+                "----.",
+                "-----"
+
         };
 
-        char[] characters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-                'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
-                'W', 'X', 'Y', 'Z' };
+        char[] characters = {
+                'A',
+                'B',
+                'C',
+                'D',
+                'E',
+                'F',
+                'G',
+                'H',
+                'I',
+                'J',
+                'K',
+                'L',
+                'M',
+                'N',
+                'O',
+                'P',
+                'Q',
+                'R',
+                'S',
+                'T',
+                'U',
+                'V',
+                'W',
+                'X',
+                'Y',
+                'Z',
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                '0'
+        };
 
         //inserting the morse code and the character into the tree
         for (int i = 0; i < codes.length; i++) {
@@ -45,5 +91,15 @@ public class MorseCodeApp {
         System.out.println("Morse Code Dictionary (In-order Traversal):");
         tree.inorderPrint(tree.getRoot(), "");
         System.out.println();
+
+
+        // Decode the Morse code message
+        String morseCode ="- ..- --- -.-- / . -...- --- .-.. / ... --- ...";
+        String decodedMessage = tree.decode(morseCode);
+        System.out.println("Decoded Message: " + decodedMessage);
+
+        // Reverse the message
+        String reversedMessage = tree.reverseMessage(decodedMessage);
+        System.out.println("Reversed Message: " + reversedMessage);
     }
 }
