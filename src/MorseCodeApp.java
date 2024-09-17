@@ -2,7 +2,7 @@ public class MorseCodeApp {
     public static void main(String[] args) {
         MorseCodeTree tree = new MorseCodeTree();
 
-        // Inserting the Morse code and the character into the tree
+        // Insert Morse code and characters into the tree
         String[] codes = {
                 ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--",
                 "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
@@ -13,7 +13,7 @@ public class MorseCodeApp {
                 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         };
 
-        // Inserting the Morse code and the character into the tree
+        // Insert the Morse code and characters into the tree
         for (int i = 0; i < codes.length; i++) {
             tree.insert(codes[i], characters[i]);
         }
@@ -24,7 +24,7 @@ public class MorseCodeApp {
         System.out.println();
 
         // Decode the Morse code message
-        String morseCode = ". --. .- ... ... . -- / . .-.. .--. -- .- ... / .- / ... .. / ... .. .... -";
+        String morseCode = "/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
