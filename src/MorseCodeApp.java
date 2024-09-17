@@ -2,7 +2,6 @@ public class MorseCodeApp {
     public static void main(String[] args) {
         MorseCodeTree tree = new MorseCodeTree();
 
-        // Insert Morse code and characters into the tree
         String[] codes = {
                 ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--",
                 "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
@@ -13,23 +12,21 @@ public class MorseCodeApp {
                 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
         };
 
-        // Insert the Morse code and characters into the tree
         for (int i = 0; i < codes.length; i++) {
             tree.insert(codes[i], characters[i]);
         }
 
-        // Print the Morse code dictionary using in-order traversal
-        System.out.println("Morse Code Dictionary (In-order Traversal):");
+        System.out.println("Morse Code Dictionary :");
         tree.inorderPrint(tree.getRoot(), "");
         System.out.println();
 
-        // Decode the Morse code message
-        String morseCode = "/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
+        // Original Morse code as provided
+      // String morseCode="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
+      String morseCode = ". --. .- ... ... . -- / . .-.. .--. -- .- ... / .- / ... .. / ... .. .... -";
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
-        // Reverse the message
-        String reversedMessage = tree.reverseMessage(decodedMessage);
-        System.out.println("Reversed Message: " + reversedMessage);
+        //String reversedMessage = tree.reverseMessage(decodedMessage);
+        //System.out.println("Reversed Message: " + reversedMessage);
     }
 }

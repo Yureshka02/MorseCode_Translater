@@ -48,25 +48,22 @@ public class MorseCodeTree {
         // Reverse the entire Morse code string
         morseCode = new StringBuilder(morseCode).reverse().toString();
 
-        // Split by Morse code word separator and then reverse each word's letters
-        String[] words = morseCode.split(" / "); // Split by Morse code word separator
+        // Split by Morse code word separator
+        String[] words = morseCode.split("/");
 
-        for (int i = words.length - 1; i >= 0; i--) { // Iterate from last word to first
-            String word = words[i];
-
-            // Reverse the letters in each word
-            word = new StringBuilder(word).reverse().toString();
+        for (String word : words) {
+            word = word.trim(); // Remove leading/trailing spaces
+            if (word.isEmpty()) {
+                decodedString.append(" ");
+                continue;
+            }
 
             // Split by Morse code letter separator
-            String[] characters = word.split(" ");
+            String[] letters = word.split(" ");
 
-            for (String code : characters) {
+            for (String letter : letters) {
                 MorseNode current = root;
-
-                // Reverse the Morse code for each character
-                code = new StringBuilder(code).reverse().toString();
-
-                for (char c : code.toCharArray()) {
+                for (char c : letter.toCharArray()) {
                     if (c == '.') {
                         current = current.left;
                     } else if (c == '-') {
@@ -78,7 +75,7 @@ public class MorseCodeTree {
                     }
                 }
                 if (current != null) {
-                    decodedString.append(current.character); // Append decoded character
+                    decodedString.append(current.character);
                 }
             }
             decodedString.append(" "); // Add space after each word
@@ -88,9 +85,9 @@ public class MorseCodeTree {
     }
 
     // Method to reverse the message for transmission security
-    public String reverseMessage(String message) {
-        return new StringBuilder(message).reverse().toString();
-    }
+//    public String reverseMessage(String message) {
+//        return new StringBuilder(message).reverse().toString();
+//    }
 
     // Getter for the root node
     public MorseNode getRoot() {
