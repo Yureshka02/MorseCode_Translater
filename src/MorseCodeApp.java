@@ -20,9 +20,15 @@ public class MorseCodeApp {
         tree.inorderPrint(tree.getRoot(), "");
         System.out.println();
 
-        // Original Morse code as provided
-      // String morseCode="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
-      String morseCode = ".- --- --- .-/ - -./ . --/ - . . --";
+        //FIRST SOLVE THE PROBLEM =>
+        //String morseCode="/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-..";
+
+        //MEET ME AT NOON =>
+        //String morseCode = ".- --- --- .-/ - -./ . --/ - . . --";
+
+        //HELLO WORLD =>
+        String morseCode = "/ ..- ..-. .-. --- --./ --- ..-. ..-. . ....";
+
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
