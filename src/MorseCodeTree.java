@@ -1,12 +1,12 @@
 public class MorseCodeTree {
     private MorseNode root;
 
-    // Constructor that initializes the root node
+    // Constructor to initialize MorseCodeTree
     public MorseCodeTree() {
-        root = new MorseNode(' ');
+        root = new MorseNode(' ');  // Root node represents the start of the Morse code tree
     }
 
-    // Method to insert a character and its Morse code into the tree
+    // Insert a character with its Morse code into the tree
     public void insert(String code, char character) {
         MorseNode current = root;
         for (char c : code.toCharArray()) {
@@ -22,74 +22,83 @@ public class MorseCodeTree {
                 current = current.right;
             }
         }
-        current.character = character; // Assign the character to the node
+        current.character = character;
     }
 
-    // In-order traversal of the tree to print the Morse code and the character
+    // Perform in-order traversal to print the Morse code dictionary
     public void inorderPrint(MorseNode node, String morseCode) {
         if (node == null) return;
 
-        // Traverse the left subtree (dot -> '.')
         inorderPrint(node.left, morseCode + ".");
-
-        // Print the character and its Morse code if the node holds a character
         if (node.character != ' ') {
             System.out.println(node.character + " : " + morseCode);
         }
-
-        // Traverse the right subtree (dash -> '-')
         inorderPrint(node.right, morseCode + "-");
     }
 
-    // Method to decode a provided Morse code string
+    // Decode a message from Morse code into English
     public String decode(String morseCode) {
         StringBuilder decodedString = new StringBuilder();
 
-        // Reverse the entire Morse code string
-        morseCode = new StringBuilder(morseCode).reverse().toString();
-
-        // Split by Morse code word separator
+        // Split by Morse code word separator (slash '/')
         String[] words = morseCode.split("/");
 
+        // Process each word in the Morse code
         for (String word : words) {
             word = word.trim(); // Remove leading/trailing spaces
+
             if (word.isEmpty()) {
                 decodedString.append(" ");
                 continue;
             }
 
-            // Split by Morse code letter separator
+            // Split by Morse code letter separator (space between letters)
             String[] letters = word.split(" ");
 
+            // Process each letter in the word
             for (String letter : letters) {
                 MorseNode current = root;
-                for (char c : letter.toCharArray()) {
+
+                // Reverse the letter's Morse code sequence
+                String reversedLetter = new StringBuilder(letter).reverse().toString();
+
+                // Process the individual Morse code characters (dots and dashes) in reversed order
+                for (char c : reversedLetter.toCharArray()) {
+                    // Traverse left for '.', traverse right for '-'
                     if (c == '.') {
                         current = current.left;
                     } else if (c == '-') {
                         current = current.right;
                     }
+
+                    // Handle invalid Morse code
                     if (current == null) {
-                        decodedString.append('?'); // Handle invalid Morse code
+                        decodedString.append('?');
                         break;
                     }
                 }
+
+                // Append the decoded character if it's valid
                 if (current != null) {
                     decodedString.append(current.character);
                 }
             }
-            decodedString.append(" "); // Add space after each word
+
+            // Add space after each word
+            decodedString.append(" ");
         }
 
-        return decodedString.toString().trim(); // Remove trailing space
+        // Return the fully decoded string, trimming any trailing spaces
+        return decodedString.toString().trim();
     }
 
-    // Method to reverse the message for transmission security
+    // Use custom stack to reverse the message
     public String reverseMessage(String message) {
-        return new StringBuilder(message).reverse().toString();
+        Stack stack = new Stack(message.length());  // Create a new stack with message length
+        return stack.reverseUsingStack(message); // Reverse the message using the stack
     }
 
-    // Getter for the root node
+    // Getter for root node
     public MorseNode getRoot() {
         return root;
     }
