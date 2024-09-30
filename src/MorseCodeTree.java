@@ -45,26 +45,26 @@ public class MorseCodeTree {
 
         // Process each word in the Morse code
         for (String word : words) {
-            word = word.trim(); // Remove leading/trailing spaces
+            word = word.trim();
 
             if (word.isEmpty()) {
                 decodedString.append(" ");
                 continue;
             }
 
-            // Split by Morse code letter separator (space between letters)
+            // Split by Morse code letter separator
             String[] letters = word.split(" ");
 
-            // Process each letter in the word
+
             for (String letter : letters) {
                 MorseNode current = root;
 
                 // Reverse the letter's Morse code sequence
                 String reversedLetter = new StringBuilder(letter).reverse().toString();
 
-                // Process the individual Morse code characters (dots and dashes) in reversed order
+                // Process the individual Morse code characters in reversed order
                 for (char c : reversedLetter.toCharArray()) {
-                    // Traverse left for '.', traverse right for '-'
+
                     if (c == '.') {
                         current = current.left;
                     } else if (c == '-') {
@@ -88,7 +88,7 @@ public class MorseCodeTree {
             decodedString.append(" ");
         }
 
-        // Return the fully decoded string, trimming any trailing spaces
+        // Return the fully decoded string
         return decodedString.toString().trim();
     }
 

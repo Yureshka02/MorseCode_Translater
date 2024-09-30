@@ -24,7 +24,7 @@ public class MorseCodeApp {
         tree.inorderPrint(tree.getRoot(), "");
         System.out.println();
 
-        // Example: Decode and reverse the message
+        //  Decode and reverse the message
           String morseCode = "/ -- . ..-. ...- --- .-. .--./ . .... -/ . -... ..-. --- .../ - ... .-. .. .-.."; //FIRST SOLVE THE PROBLEM
   //      String morseCode = "/ ..- ..-. .-. --- --./ --- ..-. ..-. . ...."; // HELLO WORLD
 
@@ -32,7 +32,7 @@ public class MorseCodeApp {
         String decodedMessage = tree.decode(morseCode);
         System.out.println("Decoded Message: " + decodedMessage);
 
-        // Now, reverse the decoded message
+        //  reverse the decoded message
         String reversedMessage = tree.reverseMessage(decodedMessage);
         System.out.println("Reversed Message: " + reversedMessage);
     }
